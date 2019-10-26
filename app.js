@@ -1,7 +1,8 @@
-const feathers = require('@feathersjs/feathers');
-const express  = require('@feathersjs/express');
-const socketio = require('@feathersjs/socketio');
-const moment   = require('moment');
+const configuration = require('@feathersjs/configuration');
+const feathers      = require('@feathersjs/feathers');
+const express       = require('@feathersjs/express');
+const socketio      = require('@feathersjs/socketio');
+const moment        = require('moment');
 
 class IdeaService {
   constructor() {
@@ -29,6 +30,8 @@ class IdeaService {
 }
 
 const app = express(feathers());
+
+app.feathers().configure(configuration());
 
 // Parse JSON
 
@@ -63,7 +66,3 @@ app.service('ideas').create({
   tech: 'Node.js',
   viewer: 'John Doe'
 });
-
-const distDir = __dirname + "/dist/";
-
-app.use(express.static(distDir));
