@@ -33,6 +33,12 @@ const app = express(feathers());
 
 app.feathers().configure(configuration());
 
+app.use(express.static('build'));
+
+app.get('*', function (req, res) {
+  res.sendFile('index.html');
+});
+
 // Parse JSON
 
 app.use(express.json());
