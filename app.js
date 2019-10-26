@@ -72,3 +72,5 @@ app.service('ideas').create({
   tech: 'Node.js',
   viewer: 'John Doe'
 });
+
+export default IdeaService;
