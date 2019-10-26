@@ -67,5 +67,6 @@ app.service('ideas').create({
 app.use(express.static('build'));
 
 app.get('*', function (req, res) {
-  res.sendFile('index.html');
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
 });
