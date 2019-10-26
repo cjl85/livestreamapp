@@ -63,3 +63,7 @@ app.service('ideas').create({
   tech: 'Node.js',
   viewer: 'John Doe'
 });
+
+const distDir = __dirname + "/dist/";
+
+app.use(express.static(distDir));
