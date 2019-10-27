@@ -33,10 +33,12 @@ const app = express(feathers());
 
 app.feathers().configure(configuration());
 
-app.use(express.static('build'));
+app.use(express.static(__dirname + '/dist/Feathers'));
 
-app.get('*', function (req, res) {
-  res.sendFile('index.html');
+app.get('/*', function(req,res) {
+
+res.sendFile(path.join(__dirname + '/dist/Feathers/index.html'));
+
 });
 
 // Parse JSON
