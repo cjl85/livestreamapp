@@ -2,6 +2,7 @@ const feathers      = require('@feathersjs/feathers');
 const express       = require('@feathersjs/express');
 const socketio      = require('@feathersjs/socketio');
 const moment        = require('moment');
+const path          = require('path');
 
 class IdeaService {
   constructor() {
@@ -64,8 +65,8 @@ app.service('ideas').create({
   viewer: 'John Doe'
 });
 
-app.use(express.static(path.join(__dirname, '/../client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
