@@ -30,16 +30,6 @@ class IdeaService {
 
 const app = express(feathers());
 
-app.use(express.static(__dirname + '/dist/Feathers'));
-
-app.get('/*', function(req,res) {
-
-const path = require('path');
-
-res.sendFile(path.join(__dirname + '/dist/Feathers/index.html'));
-
-});
-
 // Parse JSON
 
 app.use(express.json());
@@ -72,4 +62,10 @@ app.service('ideas').create({
   text: 'Build a cool app',
   tech: 'Node.js',
   viewer: 'John Doe'
+});
+
+app.use(express.static(path.join(__dirname, '/../client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 });
