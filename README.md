@@ -4,4 +4,4 @@ Simple app for coding livestreamers to have viewers send in project ideas in rea
 
 Run `npm install` and `npm start` to run the server and be able to add ideas and see it show up on the user interface.
 
-![picture](Users/cl/Desktop/pic.png)
+![picture](cl/Desktop/pic.png)
