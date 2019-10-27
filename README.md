@@ -2,4 +2,4 @@
 
 Simple app for coding livestreamers to have viewers send in project ideas in real-time using Feathersjs, Momentjs, Express and SocketIO.
 
-![Image](/CL/Desktop/pic.png)
+![picture](Desktop/pic.png)
