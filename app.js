@@ -1,4 +1,3 @@
-const configuration = require('@feathersjs/configuration');
 const feathers      = require('@feathersjs/feathers');
 const express       = require('@feathersjs/express');
 const socketio      = require('@feathersjs/socketio');
@@ -31,11 +30,11 @@ class IdeaService {
 
 const app = express(feathers());
 
-app.feathers().configure(configuration());
-
 app.use(express.static(__dirname + '/dist/Feathers'));
 
 app.get('/*', function(req,res) {
+
+const path = require('path');
 
 res.sendFile(path.join(__dirname + '/dist/Feathers/index.html'));
 
@@ -74,5 +73,3 @@ app.service('ideas').create({
   tech: 'Node.js',
   viewer: 'John Doe'
 });
-
-export default IdeaService;
