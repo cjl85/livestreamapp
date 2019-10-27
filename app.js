@@ -1,8 +1,7 @@
-const feathers      = require('@feathersjs/feathers');
-const express       = require('@feathersjs/express');
-const socketio      = require('@feathersjs/socketio');
-const moment        = require('moment');
-const path          = require('path');
+const feathers = require("@feathersjs/feathers");
+const express  = require("@feathersjs/express");
+const socketio = require("@feathersjs/socketio");
+const moment   = require("moment");
 
 class IdeaService {
   constructor() {
@@ -15,13 +14,13 @@ class IdeaService {
 
   async create(data) {
     const idea = {
-      id: this.ideas.length,
-      text: data.text,
-      tech: data.tech,
-      viewer: data.viewer
+        id:   this.ideas.length,
+      text:   data.text,
+      tech:   data.tech,
+    viewer:   data.viewer
     };
 
-    idea.time = moment().format('h:mm:ss a');
+    idea.time = moment().format("h:mm:ss a");
 
     this.ideas.push(idea);
 
@@ -45,28 +44,24 @@ app.configure(express.rest());
 
 // Register services
 
-app.use('/ideas', new IdeaService());
+app.use("/ideas", new IdeaService());
 
 // Connect new streams
 
-app.on('connection', conn => app.channel('stream').join(conn));
+app.on("connection", conn => app.channel("stream").join(conn));
 
 // Publish events to stream
 
-app.publish(data => app.channel('stream'));
+app.publish(data => app.channel("stream"));
 
 const PORT = process.env.PORT || 3030;
 
-app.listen(PORT).on('listening', () => console.log(`Server running on port ${PORT}`));
+app
+  .listen(PORT)
+  .on("listening", () => console.log(`Server running on port ${PORT}`));
 
-app.service('ideas').create({
-  text: 'Build a cool app',
-  tech: 'Node.js',
-  viewer: 'John Doe'
-});
-
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/build/index.html'));
+app.service("ideas").create({
+    text: "Build a cool app",
+    tech: "Node.js",
+  viewer: "John Doe"
 });

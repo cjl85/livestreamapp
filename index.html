@@ -10,7 +10,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <title>Livestream Project Ideas</title>
+    <title>Realtime Project App</title>
   </head>
   <body class="bg-dark text-white">
     <nav class="navbar navbar-light bg-light">
@@ -84,8 +84,8 @@
       document.getElementById("form").addEventListener("submit", sendIdea);
       async function sendIdea(e) {
         e.preventDefault();
-        const text = document.getElementById("idea-text");
-        const tech = document.getElementById("idea-tech");
+        const text   = document.getElementById("idea-text");
+        const tech   = document.getElementById("idea-tech");
         const viewer = document.getElementById("idea-viewer");
         // Create new idea
         app.service("ideas").create({
@@ -94,8 +94,8 @@
           viewer: viewer.value
         });
         // Clear inputs
-        text.value = "";
-        tech.value = "";
+        text.value   = "";
+        tech.value   = "";
         viewer.value = "";
       }
       function renderIdea(idea) {
