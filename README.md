@@ -2,4 +2,6 @@
 
 Simple app for coding livestreamers to have viewers send in project ideas in real-time using Feathersjs, Momentjs, Express and SocketIO.
 
-![picture](Desktop/pic.png)
+Run `npm install` and `npm start` to run the server and be able to add ideas and see it show up on the user interface.
+
+
